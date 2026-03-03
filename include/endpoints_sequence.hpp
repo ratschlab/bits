@@ -141,7 +141,7 @@ struct endpoints_sequence {
         uint64_t m_pos;
         uint64_t m_val;
         bit_vector::iterator m_high_bits_it;
-        std::vector<uint8_t>::const_iterator m_low_bits_it;
+        const uint8_t* m_low_bits_it;
 
         void read_next_value() {
             assert(m_pos < m_ptr->size());
@@ -226,7 +226,7 @@ private:
     bit_vector m_high_bits;
     DArray1 m_high_bits_d1;
     compact_vector m_hints_0;
-    std::vector<uint8_t> m_low_bits;
+    essentials::pod_vector<uint8_t> m_low_bits;
 
     template <typename Visitor, typename T>
     static void visit_impl(Visitor& visitor, T&& t) {

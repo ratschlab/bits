@@ -262,7 +262,7 @@ struct compact_vector  //
     uint64_t back() const { return operator[](size() - 1); }
     uint64_t size() const { return m_size; }
     uint64_t width() const { return m_width; }
-    std::vector<uint64_t> const& data() const { return m_data; }
+    essentials::pod_vector<uint64_t> const& data() const { return m_data; }
 
     typedef enumerator<compact_vector> iterator;
     iterator get_iterator_at(uint64_t pos) const { return iterator(this, pos); }
@@ -293,7 +293,7 @@ private:
     uint64_t m_size;
     uint64_t m_width;
     uint64_t m_mask;
-    std::vector<uint64_t> m_data;
+    essentials::pod_vector<uint64_t> m_data;
 
     template <typename Visitor, typename T>
     static void visit_impl(Visitor& visitor, T&& t) {

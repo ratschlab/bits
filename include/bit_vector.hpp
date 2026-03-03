@@ -322,7 +322,7 @@ struct bit_vector  //
     iterator begin() const { return get_iterator_at(0); }
 
     uint64_t num_bits() const { return m_num_bits; }
-    std::vector<uint64_t> const& data() const { return m_data; }
+    essentials::pod_vector<uint64_t> const& data() const { return m_data; }
 
     uint64_t num_bytes() const { return sizeof(m_num_bits) + essentials::vec_bytes(m_data); }
 
@@ -343,7 +343,7 @@ struct bit_vector  //
 
 protected:
     uint64_t m_num_bits;
-    std::vector<uint64_t> m_data;
+    essentials::pod_vector<uint64_t> m_data;
 
     template <typename Visitor, typename T>
     static void visit_impl(Visitor& visitor, T&& t) {

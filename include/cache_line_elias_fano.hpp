@@ -149,7 +149,7 @@ struct cache_line_elias_fano {
 private:
     uint64_t m_back;
     uint64_t m_size;
-    std::vector<uint8_t> m_bits;
+    essentials::pod_vector<uint8_t> m_bits;
 
     template <typename Visitor, typename T>
     static void visit_impl(Visitor& visitor, T&& t) {
